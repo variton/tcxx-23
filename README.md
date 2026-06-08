@@ -1,14 +1,14 @@
-# `tcxx`
+# `tcxx-23`
 
-> Modern C++20 templated header library.
+> Modern C++23 templated header library.
 
-`tcxx` provides a modern C++ set of utilities for modern C++ projects.
+`tcxx-23` provides a modern C++ set of utilities for modern C++ projects.
 
 ---
 
 ## Features
 
-- Modern C++20 codebase
+- Modern C++23 codebase
 - Docker-based reproducible development environment
 - Automated local CI workflow
 - Doxygen documentation generation
@@ -38,7 +38,7 @@ The local tooling also expects common development utilities such as
 ```bash
 cd ubuntu-resolute-gcc-15
 
-docker build -t tcxx:1.0 .
+docker build -t tcxx-23:1.0 .
 ```
 
 ---
@@ -54,7 +54,7 @@ docker run \
     -v $PWD:/home/cxx-core \
     --net=host \
     --restart=no \
-    -it tcxx:1.0 /bin/bash
+    -it tcxx-23:1.0 /bin/bash
 ```
 
 ---
@@ -81,10 +81,10 @@ The local CI pipeline performs the following tasks:
 
 ---
 
-## Using `tcxx` as a Dependency
+## Using `tcxx-23` as a Dependency
 
-When `tcxx` is pulled into another project as a dependency, run the bootstrap
-script from the `tcxx` checkout before configuring the consuming project:
+When `tcxx-23` is pulled into another project as a dependency, run the bootstrap
+script from the `tcxx-23` checkout before configuring the consuming project:
 
 ```bash
 ./bootstrap.sh
@@ -160,7 +160,7 @@ Recommended development workflow:
 
 ## Design Goals
 
-- Clean and maintainable C++20 architecture
+- Clean and maintainable C++23 architecture
 - Reproducible builds and tooling
 - Automated quality analysis
 
@@ -168,7 +168,7 @@ Recommended development workflow:
 
 ## Roadmap
 
-- [ ] C++23 modules support
+- [ ] C++26 modules support
 
 ---
 

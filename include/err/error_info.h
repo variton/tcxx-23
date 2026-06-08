@@ -3,8 +3,8 @@
 #define ERROR_INFO_H
 
 #include <concepts>
-#include <string>
 #include <expected>
+#include <string>
 #include <type_traits>
 #include <utility>
 /**
