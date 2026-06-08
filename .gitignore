@@ -1,0 +1,16 @@
+*.swp
+*.swo
+*.swn
+*.log
+lib/
+build/
+bin/
+docs/build
+clang.analysis
+docs.loggenerate
+perf.data
+docs/valgrind-report.html
+reports/
+*.swm
+.deps/
+docs

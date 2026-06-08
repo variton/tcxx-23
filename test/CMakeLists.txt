@@ -1,0 +1,81 @@
+
+#========================== core namespace tests ========================== 
+
+add_executable(test_core
+    test_core.cpp
+)
+
+target_include_directories(test_core PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_INCLUDE_PATH}/core>
+  $<BUILD_INTERFACE:${CMAKE_INCLUDE_PATH}/topology>
+  $<INSTALL_INTERFACE:include>
+)
+
+target_link_options(test_core PRIVATE
+                    $<$<CONFIG:Debug>:--coverage>)
+
+target_compile_options(test_core PRIVATE 
+                       -Wall -Wextra -pedantic
+                       $<$<CONFIG:Debug>:--coverage -Og -g>
+                       $<$<CONFIG:Release>:-O3 -DNDEBUG>)
+
+add_test(NAME test_core COMMAND $<TARGET_FILE:test_core>)
+
+set_tests_properties(test_core PROPERTIES
+  ENVIRONMENT "RC=${TRC}"
+)
+
+#========================== err namespace tests ========================== 
+
+add_executable(test_err
+    test_err_info.cpp
+)
+
+target_include_directories(test_err PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_INCLUDE_PATH}/err>
+  $<BUILD_INTERFACE:${CMAKE_INCLUDE_PATH}/topology>
+  $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/examples/math>
+  $<INSTALL_INTERFACE:include>
+)
+
+target_link_options(test_err PRIVATE
+                    $<$<CONFIG:Debug>:--coverage>)
+
+target_compile_options(test_err PRIVATE 
+                       -Wall -Wextra -pedantic
+                       $<$<CONFIG:Debug>:--coverage -Og -g>
+                       $<$<CONFIG:Release>:-O3 -DNDEBUG>)
+
+add_test(NAME test_err COMMAND $<TARGET_FILE:test_err>)
+
+set_tests_properties(test_err PROPERTIES
+  ENVIRONMENT "RC=${TRC}"
+)
+
+#========================== example math namespace tests ========================== 
+
+add_executable(test_example_math
+    test_example_math.cpp
+)
+
+target_include_directories(test_example_math PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_INCLUDE_PATH}/core>
+  $<BUILD_INTERFACE:${CMAKE_INCLUDE_PATH}/err>
+  $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/examples/math>
+  $<BUILD_INTERFACE:${CMAKE_INCLUDE_PATH}/topology>
+  $<INSTALL_INTERFACE:include>
+)
+
+target_link_options(test_example_math PRIVATE
+                    $<$<CONFIG:Debug>:--coverage>)
+
+target_compile_options(test_example_math PRIVATE 
+                       -Wall -Wextra -pedantic
+                       $<$<CONFIG:Debug>:--coverage -Og -g>
+                       $<$<CONFIG:Release>:-O3 -DNDEBUG>)
+
+add_test(NAME test_example_math COMMAND $<TARGET_FILE:test_example_math>)
+
+set_tests_properties(test_example_math PROPERTIES
+  ENVIRONMENT "RC=${TRC}"
+)
