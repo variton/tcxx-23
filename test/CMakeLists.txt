@@ -79,3 +79,32 @@ add_test(NAME test_example_math COMMAND $<TARGET_FILE:test_example_math>)
 set_tests_properties(test_example_math PROPERTIES
   ENVIRONMENT "RC=${TRC}"
 )
+
+#========================== example obs namespace tests ========================== 
+
+add_executable(test_obs
+    test_obs.cpp
+)
+
+target_include_directories(test_obs PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_INCLUDE_PATH}/core>
+  $<BUILD_INTERFACE:${CMAKE_INCLUDE_PATH}/err>
+  $<BUILD_INTERFACE:${CMAKE_INCLUDE_PATH}/topology>
+  $<BUILD_INTERFACE:${CMAKE_INCLUDE_PATH}/obs>
+  $<INSTALL_INTERFACE:include>
+)
+
+target_link_options(test_obs PRIVATE
+                    $<$<CONFIG:Debug>:--coverage>)
+
+target_compile_options(test_obs PRIVATE 
+                       -Wall -Wextra -pedantic
+                       $<$<CONFIG:Debug>:--coverage -Og -g>
+                       $<$<CONFIG:Release>:-O3 -DNDEBUG>)
+
+add_test(NAME test_obs COMMAND $<TARGET_FILE:test_obs>)
+
+set_tests_properties(test_obs PROPERTIES
+  ENVIRONMENT "RC=${TRC}"
+)
+
