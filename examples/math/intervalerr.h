@@ -2,7 +2,7 @@
 #ifndef INTERVALERR_H
 #define INTERVALERR_H
 
-#include <error_info.h>
+#include <err_utils.h>
 
 namespace math{
 
@@ -12,7 +12,7 @@ enum class IntervalError{
   OutOfScopeOnLowerBound,
 };
 
-using IntervalErrorInfo = err::ErrorInfo<IntervalError>;
+ERR_DEFINE_ERROR_INFO(IntervalError,IntervalErrorInfo);
 
 }
 
