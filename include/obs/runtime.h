@@ -24,6 +24,22 @@ namespace obs{
     static int clock_runtime_main(                                      \
         int argc, char** argv, [[maybe_unused]] obs::s_clock & clock)
 
+#define MILLI_CLOCK_RUNTIME_MAIN                                        \
+    static int clock_runtime_main(                                      \
+        int argc, char** argv, obs::milli_c & clock);                    \
+                                                                        \
+    int main(int argc, char** argv) {                                   \
+        if (argc == 1) {                                                \
+            std::println("missing argument");                           \
+            return EXIT_FAILURE;                                        \
+        }                                                               \
+                                                                        \
+        obs::milli_c clock;                                             \
+        return clock_runtime_main(argc, argv, clock);                   \
+    }                                                                   \
+                                                                        \
+    static int clock_runtime_main(                                      \
+        int argc, char** argv, [[maybe_unused]] obs::milli_c & clock)
 
 #define MICRO_CLOCK_RUNTIME_MAIN                                        \
     static int clock_runtime_main(                                      \
