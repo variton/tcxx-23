@@ -11,7 +11,7 @@ TEST_CASE("clock behavior")
     CHECK(1 + 1 == 2);
 }
 
-CLOCK_RUNTIME_MAIN
+MICRO_CLOCK_RUNTIME_MAIN
 {
     clock();
     clock();
