@@ -130,7 +130,7 @@ target_compile_options(test_obs_runtime PRIVATE
                        $<$<CONFIG:Debug>:--coverage -Og -g>
                        $<$<CONFIG:Release>:-O3 -DNDEBUG>)
 
-add_test(NAME test_obs_runtime COMMAND $<TARGET_FILE:test_obs>)
+add_test(NAME test_obs_runtime COMMAND $<TARGET_FILE:test_obs_runtime> runtime_arg)
 
 set_tests_properties(test_obs_runtime PROPERTIES
   ENVIRONMENT "RC=${TRC}"
@@ -158,7 +158,7 @@ target_compile_options(test_obs_mc_runtime PRIVATE
                        $<$<CONFIG:Debug>:--coverage -Og -g>
                        $<$<CONFIG:Release>:-O3 -DNDEBUG>)
 
-add_test(NAME test_obs_mc_runtime COMMAND $<TARGET_FILE:test_obs>)
+add_test(NAME test_obs_mc_runtime COMMAND $<TARGET_FILE:test_obs_mc_runtime> micro_arg)
 
 set_tests_properties(test_obs_mc_runtime PROPERTIES
   ENVIRONMENT "RC=${TRC}"
@@ -186,7 +186,7 @@ target_compile_options(test_obs_ml_runtime PRIVATE
                        $<$<CONFIG:Debug>:--coverage -Og -g>
                        $<$<CONFIG:Release>:-O3 -DNDEBUG>)
 
-add_test(NAME test_obs_ml_runtime COMMAND $<TARGET_FILE:test_obs>)
+add_test(NAME test_obs_ml_runtime COMMAND $<TARGET_FILE:test_obs_ml_runtime> milli_arg)
 
 set_tests_properties(test_obs_ml_runtime PROPERTIES
   ENVIRONMENT "RC=${TRC}"
@@ -214,7 +214,7 @@ target_compile_options(test_obs_nc_runtime PRIVATE
                        $<$<CONFIG:Debug>:--coverage -Og -g>
                        $<$<CONFIG:Release>:-O3 -DNDEBUG>)
 
-add_test(NAME test_obs_nc_runtime COMMAND $<TARGET_FILE:test_obs>)
+add_test(NAME test_obs_nc_runtime COMMAND $<TARGET_FILE:test_obs_nc_runtime> nano_arg)
 
 set_tests_properties(test_obs_nc_runtime PROPERTIES
   ENVIRONMENT "RC=${TRC}"
