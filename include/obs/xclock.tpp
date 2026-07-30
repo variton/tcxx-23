@@ -5,6 +5,7 @@ template <typename CLOCK, typename PRECISION>
 Xclock<CLOCK, PRECISION>::Xclock() noexcept
     : started_(false),
       str_time_elapsed_("0 s") {}
+      // time_elapsed_{} {}
 
 template <typename CLOCK, typename PRECISION>
 Xclock<CLOCK, PRECISION>::~Xclock() = default;
@@ -19,10 +20,10 @@ std::string_view Xclock<CLOCK, PRECISION>::elapsed_to_str() const noexcept{
     return str_time_elapsed_;
 }
 
-// template <typename CLOCK, typename PRECISION>
-// PRECISION Xclock<CLOCK, PRECISION>::elapsed() const noexcept{
-//     return time_elapsed_;
-// }
+template<typename CLOCK, typename PRECISION>
+typename PRECISION::rep Xclock<CLOCK, PRECISION>::elapsed() const noexcept{
+    return time_elapsed_;
+}
 
 template <typename CLOCK, typename PRECISION>
 void Xclock<CLOCK, PRECISION>::start() noexcept {

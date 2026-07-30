@@ -50,7 +50,7 @@ public:
    */
   std::string_view elapsed_to_str() const noexcept;
 
-  PRECISION elasped() const noexcept;
+  typename PRECISION::rep elapsed() const noexcept;
 
 private:
   /**
@@ -70,7 +70,7 @@ private:
 
   bool started_; ///< Indicates whether the clock is currently running.
   std::string str_time_elapsed_; ///< Last measured elapsed time.
-  typename PRECISION::rep time_elapsed_; ///
+  typename PRECISION::rep time_elapsed_{}; ///
   std::chrono::time_point<CLOCK, PRECISION> begin_; ///< Start time point.
   std::chrono::time_point<CLOCK, PRECISION> end_;   ///< Stop time point.
 };
