@@ -10,7 +10,7 @@ using namespace std::chrono_literals;
 
 TEST_CASE("Xclock elasped init [seconds] OK") {
   obs::Xclock clock;
-  CHECK(clock.elapsed() == "0 s");
+  CHECK(clock.elapsed_to_str() == "0 s");
 }
 
 TEST_CASE("Xclock elasped [seconds] OK") {
@@ -18,7 +18,7 @@ TEST_CASE("Xclock elasped [seconds] OK") {
   clock();
   //std::this_thread::sleep_for(1s);
   clock();
-  CHECK(clock.elapsed() == "0 s");
+  CHECK(clock.elapsed_to_str() == "0 s");
 }
 
 TEST_CASE("Xclock elasped [milliseconds] OK") {
@@ -26,5 +26,5 @@ TEST_CASE("Xclock elasped [milliseconds] OK") {
   clock();
   //std::this_thread::sleep_for(500ms);
   clock();
-  CHECK(clock.elapsed() == "0 ms");
+  CHECK(clock.elapsed_to_str() == "0 ms");
 }

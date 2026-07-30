@@ -16,7 +16,7 @@ NANO_CLOCK_RUNTIME_MAIN
     clock();
     clock();
     //todo change the interface used to extract the elapsed time
-    const auto time = clock.elapsed();
+    const auto time = clock.elapsed_to_str();
     std::println("{}",time);
     doctest::Context context;
     context.applyCommandLine(argc, argv);
