@@ -4,8 +4,8 @@ namespace obs {
 template <typename CLOCK, typename PRECISION>
 Xclock<CLOCK, PRECISION>::Xclock() noexcept
     : started_(false),
-      str_time_elapsed_("0 s") {}
-      // time_elapsed_{} {}
+      str_time_elapsed_("0 s"),
+      time_elapsed_{} {}
 
 template <typename CLOCK, typename PRECISION>
 Xclock<CLOCK, PRECISION>::~Xclock() = default;
