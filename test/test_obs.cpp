@@ -3,10 +3,10 @@
 
 #include <doctest/doctest.h>
 
-#include <thread>
-#include <xclock.h>
 #include <print>
 #include <string>
+#include <thread>
+#include <xclock.h>
 
 using namespace std::chrono_literals;
 
@@ -20,7 +20,7 @@ TEST_CASE("Xclock elasped [milliseconds] OK") {
   clock();
   std::this_thread::sleep_for(10ms);
   clock();
-  CHECK(clock.elapsed() >= 10 );
+  CHECK(clock.elapsed() >= 10);
 }
 
 TEST_CASE("Xclock elasped init [milliseconds] OK") {
