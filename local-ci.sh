@@ -78,7 +78,7 @@ for file in "$LAB_DIR"/bin/test_*; do
       --xml-file="$report_file" \
       --log-file="$REPORT_DIR/${name}.log" \
       --error-exitcode=1 \
-      "$file"
+      "$file" decoy
 
     printf 'Report saved to %s\n' "$report_file"
     ((counter++))
