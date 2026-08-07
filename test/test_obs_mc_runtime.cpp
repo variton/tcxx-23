@@ -11,7 +11,7 @@ TEST_CASE("clock behavior") { CHECK(1 + 1 == 2); }
 MICRO_CLOCK_RUNTIME_MAIN {
   clock();
   clock();
-  // todo change the interface used to extract the elapsed time
+  /*todo change the interface used to extract the elapsed time*/
   const auto time = clock.elapsed_to_str();
   std::println("{}", time);
   doctest::Context context;
