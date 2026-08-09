@@ -30,3 +30,11 @@ TEST_CASE("Xclock elasped init [milliseconds] OK") {
   clock();
   CHECK(clock.elapsed() >= 50);
 }
+
+TEST_CASE("Xclock elasped init [nanoseconds] OK") {
+  obs::nano_c clock;
+  clock();
+  std::this_thread::sleep_for(50ns);
+  clock();
+  CHECK(clock.elapsed() >= 50);
+}
