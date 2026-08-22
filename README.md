@@ -169,6 +169,7 @@ Recommended development workflow:
 ## Roadmap
 
 - [ ] C++26 modules support
+- [ ] todo add a feature that allow to create a cli app. 
 
 ---
 
