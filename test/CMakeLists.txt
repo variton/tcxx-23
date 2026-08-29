@@ -34,6 +34,7 @@ add_executable(test_err
 target_include_directories(test_err PUBLIC
   $<BUILD_INTERFACE:${CMAKE_INCLUDE_PATH}/err>
   $<BUILD_INTERFACE:${CMAKE_INCLUDE_PATH}/topology>
+  $<BUILD_INTERFACE:${CMAKE_INCLUDE_PATH}/core>
   $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/examples/math>
   $<INSTALL_INTERFACE:include>
 )
