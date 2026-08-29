@@ -65,6 +65,11 @@ auto propagate(const std::expected<T, ErrorInfo<SourceError>> &result,
   return unexpected(target_error, result.error().message);
 }
 
+template <typename T, typename SourceError>
+auto propagate(const std::expected<T, ErrorInfo<SourceError>> &result) {
+  return unexpected(result.error().type, result.error().message);
+}
+
 } // namespace err
 
 #endif

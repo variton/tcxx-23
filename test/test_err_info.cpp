@@ -102,3 +102,11 @@ TEST_CASE("Propagate error with target") {
   CHECK(res.error().type == XClientError::ValueError);
   CHECK(res.error().message == "value is not valid");
 }
+
+TEST_CASE("Propagate error without target") {
+  Client<Decoy, DecoyErrorInfo> d{1};
+  auto res = d.compare_id(1);
+  CHECK(!res.has_value());
+  CHECK(res.error().type == DecoyError::ValueError);
+  CHECK(res.error().message == "value is not valid");
+}
