@@ -28,6 +28,8 @@ namespace err {
  *       to be copyable.
  */
 template <typename ErrorType> struct ErrorInfo {
+  using ErrType_ = ErrorType;
+
   /** @brief Error identifier or category. */
   ErrorType type;
 
