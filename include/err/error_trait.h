@@ -6,11 +6,18 @@
 
 namespace err {
 
-template <typename T> using Default = core::NCNM<T>;
+/** Default non-copyable, non-movable base type. */
+template <typename T>
+using Default = core::NCNM<T>;
 
-template <typename T> struct ErrorTrait : public Default<ErrorTrait<T>> {
-  using ErrTypeInfo = T;
-  using ErrType = typename T::ErrType_;
+/**
+ * @brief Provides error-type information.
+ * @tparam T Type containing an `ErrType_` member type.
+ */
+template <typename T>
+struct ErrorTrait : public Default<ErrorTrait<T>> {
+  using ErrTypeInfo = T;             ///< Error type-information provider.
+  using ErrType = typename T::ErrType_; ///< Underlying error type.
 };
 
 } // namespace err
