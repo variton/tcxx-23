@@ -61,12 +61,36 @@ auto unexpected(ErrorType error, std::string msg) {
   return std::unexpected(ErrorInfo<ErrorType>{error, msg});
 }
 
+/**
+ * @brief Propagates an error using a different error identifier.
+ *
+ * @tparam TargetError Target error identifier type.
+ * @tparam T Expected value type.
+ * @tparam SourceError Source error identifier type.
+ * @param result Expected result containing the source error.
+ * @param target_error Error identifier assigned to the propagated error.
+ * @return An unexpected value containing @p target_error and the original
+ *         error message.
+ *
+ * @pre @p result contains an error.
+ */
 template <typename TargetError, typename T, typename SourceError>
 auto propagate(const std::expected<T, ErrorInfo<SourceError>> &result,
                TargetError target_error) {
   return unexpected(target_error, result.error().message);
 }
 
+/**
+ * @brief Propagates an error while preserving its identifier and message.
+ *
+ * @tparam T Expected value type.
+ * @tparam SourceError Source error identifier type.
+ * @param result Expected result containing the source error.
+ * @return An unexpected value containing the original error identifier and
+ *         message.
+ *
+ * @pre @p result contains an error.
+ */
 template <typename T, typename SourceError>
 auto propagate(const std::expected<T, ErrorInfo<SourceError>> &result) {
   return unexpected(result.error().type, result.error().message);
