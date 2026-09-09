@@ -56,7 +56,7 @@ namespace obs {
                                 [[maybe_unused]] obs::micro_c &clock)
 
 #define NANO_CLOCK_RUNTIME_MAIN                                                \
-  static int clock_runtime_main(int argc, char **argv, obs::micro_c &clock);   \
+  static int clock_runtime_main(int argc, char **argv, obs::nano_c &clock);   \
                                                                                \
   int main(int argc, char **argv) {                                            \
     if (argc == 1) {                                                           \
@@ -64,12 +64,12 @@ namespace obs {
       return EXIT_FAILURE;                                                     \
     }                                                                          \
                                                                                \
-    obs::micro_c clock;                                                        \
+    obs::nano_c clock;                                                        \
     return clock_runtime_main(argc, argv, clock);                              \
   }                                                                            \
                                                                                \
   static int clock_runtime_main(int argc, char **argv,                         \
-                                [[maybe_unused]] obs::micro_c &clock)
+                                [[maybe_unused]] obs::nano_c &clock)
 
 } // namespace obs
 
